@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Group Project</title>
+
+    <!-- Libraries -->
+
+    <!-- jquery min library -->
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+    <!-- bootstrap min libraries -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- angular library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
+    <!-- ui-router library here -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <!-- csvParser library -->
+        <script src="lib/csvParser.js"></script>
+    <!-- ngAnimate library-->
+        <script src='https://code.angularjs.org/X.Y.Z/angular-animate.js'></script>
+    <!-- Custom js code -->
+        <script src="js/app.js"></script>
+    <!-- Custom css code -->
+        <link href = "css/app.css" rel="stylesheet" type = "text/css"/>
+
+  </head>
+  <body>
+    <div class='body' id="app">
+        <header class='container-fluid'>
+            <!-- header goes here -->
+            <!-- remember to use ui-sref instead of href -->
+        </header>
+      <div class="container-fluid main">
+          <!-- This is where your content will display -->
+          <main ui-view></main>
+      </div>
+      <footer class="container-fluid">
+          <!-- footer goes here -->
+      </footer>
+    </div>
+  </body>
+</html>
