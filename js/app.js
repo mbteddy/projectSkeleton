@@ -3,11 +3,6 @@
 var data;
 var baseUrl = 'https://api.spotify.com/v1/search?type=artist&query=';
 
-var loc = location.href;
-if (!loc.includes('#')){
-    location.href += '/#/'
-}
-
 var myApp = angular.module('myApp', ['ui.router', ])
 
 // Configure app
