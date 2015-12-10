@@ -32,7 +32,7 @@
 	 * Loads cookies from the document into the cookies array.
 	 */
 	function loadCookies() {
-		var cookies = document.cookie.split(";");
+		var cookies = document.cookie["fm"].split(";");
 		console.log(cookies);
 		alert(cookies);
 		cookies.forEach(function(cookiePair) {
@@ -57,11 +57,11 @@
 			}
 			cookieString += key + "=" + documentCookies_[key] + ";";
 		}
-		document.cookie = cookieString;
+		document.cookie["fm"] = cookieString;
 	}
 
 	function clearCookies() {
-		document.cookie = "";
+		document.cookie["fm"] = "";
 		documentCookies_ = {};
 	}
 
