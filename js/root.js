@@ -58,6 +58,11 @@
 		document.cookie = cookieString;
 	}
 
+	function clearCookies() {
+		document.cookie = "";
+		documentCookies_ = {};
+	}
+
 	// On page ready
 	$(function() {
 		// Defines all valid paths
