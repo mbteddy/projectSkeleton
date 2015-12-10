@@ -22,7 +22,7 @@
 			return;
 		}
 
-		setCookie("accessToken", params.access_token);
+		$.cookie("accessToken", params.access_token);
 		window.location = "/home";
 	} ());
 </script>

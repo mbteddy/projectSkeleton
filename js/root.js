@@ -5,68 +5,6 @@
  */
 
 (function() {
-	var documentCookies_ = {};
-
-	/**
-	 * Stores a cookie in the document.
-	 *
-	 * @param {!string} key
-	 * @param {?string} value
-	 */
-	function setCookie(key, value) {
-		documentCookies_[key] = value;
-		storeCookies();
-	}
-
-	/**
-	 * Fetches a cookie. If the key doesn't exist, returns null.
-	 *
-	 * @param {!string} key
-	 * @return {?string}
-	 */
-	function getCookie(key) {
-		return documentCookies_[key] || null;
-	}
-
-	/**
-	 * Loads cookies from the document into the cookies array.
-	 */
-	function loadCookies() {
-		var cookies = document.cookie.split(";");
-		console.log(cookies);
-		alert(cookies);
-		cookies.forEach(function(cookiePair) {
-			var kv = cookiePair.split("=");
-			if (kv.length == 2) {
-				documentCookies_[kv[0]] = kv[1];
-			}
-		});
-	}
-
-	/**
-	 * Flushes all cookies from the cache object to the document.
-	 */
-	function storeCookies() {
-		var cookieString = "";
-		for (var key in documentCookies_) {
-			if (!documentCookies_.hasOwnProperty(key)) {
-				continue;
-			}
-			if (documentCookies_[key] == null) {
-				continue;
-			}
-			cookieString += key + "=" + documentCookies_[key] + "; ";
-		}
-		document.cookie = cookieString;
-		console.log(cookieString);
-		alert(cookieString);
-	}
-
-	function clearCookies() {
-		document.cookie = "";
-		documentCookies_ = {};
-	}
-
 	// On page ready
 	$(function() {
 		// Defines all valid paths
@@ -85,14 +23,6 @@
 		// Load into content
 		$('#content').load(templateLocation);
 	});
-
-	// Load cookies from the document into cache.
-	loadCookies();
-
-	// Bind public functions to the window
-	window.setCookie = setCookie;
-	window.getCookie = getCookie;
-	window.clearCookies = clearCookies;
 } ());
 
 
