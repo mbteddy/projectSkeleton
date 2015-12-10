@@ -14,7 +14,7 @@
 	 * @param {?string} value
 	 */
 	function setCookie(key, value) {
-		documentCookies_[key] = value;
+		documentCookies_[key] = value + ";";
 		storeCookies();
 	}
 
