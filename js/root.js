@@ -33,6 +33,8 @@
 	 */
 	function loadCookies() {
 		var cookies = document.cookie.split(";");
+		console.log(cookies);
+		alert(cookies);
 		cookies.forEach(function(cookiePair) {
 			var kv = cookiePair.split("=");
 			if (kv.length == 2) {
