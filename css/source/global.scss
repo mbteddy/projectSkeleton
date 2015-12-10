@@ -1,0 +1,29 @@
+// Global
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.hidden {
+	display: none;
+}
+
+.v-aligned-helper {
+	width: 0;
+
+	&.fullpage {
+		height: 100vh;
+	}
+}
+.v-aligned-helper, .v-aligned {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+// page-specific styles
+@import 'home';
+@import 'login';

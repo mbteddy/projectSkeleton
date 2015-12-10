@@ -1,38 +1,95 @@
-<<<<<<< HEAD
-// Create app
-// var myApp = angular.module('myApp', ['ngRoute'])
+/**
+ * root.js
+ *
+ * This file contains functions that effect all pages within this website.
+ */
 
-var artistNameForMap;
+(function() {
+	var documentCookies_ = {};
 
-var data;
-var baseUrl = 'https://api.spotify.com/v1/search?type=artist&query=';
-=======
->>>>>>> 906cff239c977f54644084975be3f12c240be974
-
-// On ready
-$(function() {
-	
-
-	// Defines all valid paths within this website
-	var validPaths = {
-		'/login': 'templates/login.html',
-		'/home': 'templates/home.html'
-	};
-	
-	var templateLocation = validPaths['/login'];
-	if (!!validPaths[window.location.pathname]) {
-		templateLocation = validPaths[window.location.pathname];
+	/**
+	 * Stores a cookie in the document.
+	 *
+	 * @param {!string} key
+	 * @param {?string} value
+	 */
+	function setCookie(key, value) {
+		documentCookies_[key] = value;
+		storeCookies();
 	}
-	
-	$('#content').load(templateLocation);
-});
 
-// Angular.
-var myApp = angular.module('myApp', []);
+	/**
+	 * Fetches a cookie. If the key doesn't exist, returns null.
+	 *
+	 * @param {!string} key
+	 * @return {?string}
+	 */
+	function getCookie(key) {
+		return documentCookies_[key] || null;
+	}
+
+	/**
+	 * Loads cookies from the document into the cookies array.
+	 */
+	function loadCookies() {
+		var cookies = document.cookie.split(";");
+		cookies.forEach(function(cookiePair) {
+			var kv = cookiePair.split("=");
+			if (kv.length == 2) {
+				documentCookies_[kv[0]] = kv[1];
+			}
+		})
+	}
+
+	/**
+	 * Flushes all cookies from the cache object to the document.
+	 */
+	function storeCookies() {
+		var cookieString = "";
+		for (var key in documentCookies_) {
+			if (!documentCookies_.hasOwnProperty(key)) {
+				continue;
+			}
+			if (documentCookies_[key] == null) {
+				continue;
+			}
+			cookieString += key + "=" + documentCookies_[key];
+		}
+		document.cookie = cookieString;
+	}
+
+	// On page ready
+	$(function() {
+		// Defines all valid paths
+		var validPaths = {
+			'/login': 'templates/login.html',
+			'/home': 'templates/home.html',
+			'/auth': 'templates/auth.html'
+		};
+
+		// Default path
+		var templateLocation = validPaths['/login'];
+		if (!!validPaths[window.location.pathname]) {
+			templateLocation = validPaths[window.location.pathname];
+		}
+
+		// Load into content
+		$('#content').load(templateLocation);
+	});
+
+	// Load cookies from the document into cache.
+	loadCookies();
+
+	// Bind public functions to the window
+	window.setCookie = setCookie;
+	window.getCookie = getCookie;
+} ());
+
+
 
 
 // Oh god. Ignore this for now
-/* 
+/*
 // Configure app
 .config() {
     //$stateProvider
@@ -56,7 +113,7 @@ var myApp = angular.module('myApp', []);
 			templateUrl: '/templates/home.html',
 			controller: 'homeController'
 		});
-		
+
 })
 // // Main controller
 // .controller('MainController', function($scope, $route, $routeParams, $location) {

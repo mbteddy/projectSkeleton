@@ -1,0 +1,49 @@
+.artist-list {
+	$art-width: 300px;
+
+	list-style: none;
+
+	a {
+		&, &:link, &:visited {
+			text-decoration: none;
+		}
+
+		&:hover, &:active {
+			.artist {
+				color: #000;
+				background-color: rgba(255, 255, 255, 0.75);
+			}
+		}
+	}
+
+	li {
+		display: inline-block;
+		vertical-align: top;
+		padding: 10px;
+	}
+
+	img {
+		width: $art-width;
+	}
+	.artist {
+		position: absolute;
+		$art-height: 32px;
+
+		width: $art-width;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		height: $art-height;
+		margin-top: - $art-height * 1.2;
+		line-height: $art-height;
+		padding: 0 10px;
+		font-weight: bold;
+
+		background-color: rgba(0, 0, 0, 0.75);
+		color: #FFF;
+	}
+}
+
+.home-search {
+	margin-top: 20px;
+}

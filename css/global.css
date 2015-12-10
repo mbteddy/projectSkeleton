@@ -1,0 +1,60 @@
+html, body {
+  padding: 0;
+  margin: 0; }
+
+.clearfix {
+  clear: both; }
+
+.hidden {
+  display: none; }
+
+.v-aligned-helper {
+  width: 0; }
+  .v-aligned-helper.fullpage {
+    height: 100vh; }
+
+.v-aligned-helper, .v-aligned {
+  vertical-align: middle;
+  display: inline-block; }
+
+.artist-list {
+  list-style: none; }
+  .artist-list a, .artist-list a:link, .artist-list a:visited {
+    text-decoration: none; }
+  .artist-list a:hover .artist, .artist-list a:active .artist {
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.75); }
+  .artist-list li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px; }
+  .artist-list img {
+    width: 300px; }
+  .artist-list .artist {
+    position: absolute;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 32px;
+    margin-top: -38.4px;
+    line-height: 32px;
+    padding: 0 10px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #FFF; }
+
+.home-search {
+  margin-top: 20px; }
+
+.login-container {
+  text-align: center; }
+
+.login #login {
+  padding: 20px 60px;
+  font-weight: bold;
+  font-size: 28px; }
+.login .hint {
+  color: #999; }
+
+/*# sourceMappingURL=global.css.map */
