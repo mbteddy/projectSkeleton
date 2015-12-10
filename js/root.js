@@ -59,6 +59,7 @@
 		}
 		document.cookie = cookieString;
 		console.log(cookieString);
+		alert(cookieString);
 	}
 
 	function clearCookies() {
