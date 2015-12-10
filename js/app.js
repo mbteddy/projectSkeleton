@@ -1,28 +1,52 @@
-// Create app
-// var myApp = angular.module('myApp', ['ngRoute'])
-var data;
-var baseUrl = 'https://api.spotify.com/v1/search?type=artist&query=';
 
-var myApp = angular.module('myApp', ['ui.router', ])
+// On ready
+$(function() {
+	
 
+	// Defines all valid paths within this website
+	var validPaths = {
+		'/login': 'templates/login.html',
+		'/home': 'templates/home.html'
+	};
+	
+	var templateLocation = validPaths['/login'];
+	if (!!validPaths[window.location.pathname]) {
+		templateLocation = validPaths[window.location.pathname];
+	}
+	
+	$('#content').load(templateLocation);
+});
+
+// Angular.
+var myApp = angular.module('myApp', []);
+
+
+// Oh god. Ignore this for now
+/* 
 // Configure app
-.config(function($stateProvider) {
-    $stateProvider
+.config() {
+    //$stateProvider
         // .state('home', {
         //     url: '/home/',
         //     templateUrl: 'templates/home.html',
         //     controller: 'homeController',
         // })
-        .state('login', {
-            url: '/',
-            templateUrl: 'templates/login.html',
-            controller: 'loginController',
-        })
-        .state('home', {
-            url: '/home/',
-            templateUrl: 'templates/home.html',
-            controller: 'homeController',
-        })
+        //.state('login', {
+         //   url: '',
+         //   templateUrl: 'templates/login.html',
+         //   controller: 'loginController',
+        //})
+        //.state('home', {
+        //    url: 'home/',
+        //    templateUrl: 'templates/home.html',
+        //    controller: 'homeController',
+        //})
+	$routeProvider
+		.when('/' {
+			templateUrl: '/templates/home.html',
+			controller: 'homeController'
+		});
+		
 })
 // // Main controller
 // .controller('MainController', function($scope, $route, $routeParams, $location) {
@@ -69,7 +93,7 @@ var myApp = angular.module('myApp', ['ui.router', ])
     	/**
     	 * Obtains parameters from the hash of the URL
     	 * @return Object
-    	 */
+    	 * /
     	function getHashParams() {
     		var hashParams = {};
     		var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -128,7 +152,7 @@ var myApp = angular.module('myApp', ['ui.router', ])
     	/**
     	 * This is the method that's called once the favorite (followed) artists and people are fetched.
     	 * @param artists
-    	 */
+    	 * /
     	function userAuthorFetchCallback(artists) {
     		var favs = $('#favorites');
     		artists.items.forEach(function(artist) {
@@ -159,4 +183,4 @@ var myApp = angular.module('myApp', ['ui.router', ])
             window.location = url;
         });
     } ());
-})
+}) */

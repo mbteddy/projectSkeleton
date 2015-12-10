@@ -18,7 +18,7 @@
 
 	// validate
 	if (!access_token) {
-		window.location = "./login/";
+		window.location = "/login";
 		return;
 	}
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp" >
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,10 +15,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!-- angular library -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
-    <!-- ui-router library here -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-    <!-- csvParser library -->
-        <script src="lib/csvParser.js"></script>
     <!-- ngAnimate library-->
         <script src='https://code.angularjs.org/X.Y.Z/angular-animate.js'></script>
         <link rel="stylesheet" type="text/css" href="css/ng-animation.css">
@@ -28,23 +24,19 @@
         <link href = "css/app.css" rel="stylesheet" type = "text/css"/>
 
   </head>
-  <body>
+  <body ng-app="myApp">
     <div class='body' id="app">
-        <header class='container-fluid'>
-            <!-- header goes here -->
-            <!-- remember to use ui-sref instead of href -->
-        </header>
-      <div class="container-fluid main">
-          <!-- This is where your content will display -->
-          <main ui-view></main>
-      </div>
+		<header class='container-fluid'>
+			<!-- header goes here -->
+			<!-- remember to use ui-sref instead of href -->
+		</header>
+		
+         <!-- This is where your content will display -->
+		<div class="container-fluid main" id="content"></div>
+	  
       <footer class="container-fluid">
           <!-- footer goes here -->
       </footer>
     </div>
-
-     <script src="/js/spotify_favorites.js"></script>
-     <script src="/js/spotify_favorites.js"></script>
-
   </body>
 </html>
