@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+// Create app
+// var myApp = angular.module('myApp', ['ngRoute'])
+
+var artistNameForMap;
+
+var data;
+var baseUrl = 'https://api.spotify.com/v1/search?type=artist&query=';
+=======
+>>>>>>> 906cff239c977f54644084975be3f12c240be974
 
 // On ready
 $(function() {
@@ -88,6 +98,10 @@ var myApp = angular.module('myApp', []);
 			$scope.tracks = data;
 		})
 	};
+    $scope.add = function(data) {
+        console.log(data);
+        //favoriteArtist(data);
+    };
 
     (function() {
     	/**
@@ -132,6 +146,7 @@ var myApp = angular.module('myApp', []);
     	}
 
     	function favoriteArtist(artistId) {
+            //so the way we should do this in html is onclick="favoriteArtist({{track.id}})"
     		$.ajax({
     			url: "https://api.spotify.com/v1/me/following?type=user&ids=" + artistId,
     			type: "PUT",
@@ -141,6 +156,8 @@ var myApp = angular.module('myApp', []);
     			success: function(data) {
     				console.log("it worked");
     				console.log(data);
+                    //if successful we should rebuild the favorites list to reflect the additional artist -Ned
+                    populateArtists();
     			},
     			complete: function(xhr, status) {
     				console.log(xhr);
@@ -162,6 +179,9 @@ var myApp = angular.module('myApp', []);
     			img.attr('src', artist.images[0].url);
     			domEl.append(img);
     			favs.append(domEl);
+                domEl.click(function (artist){
+                    artistNameForMap = artist.id
+                })
     		});
     	}
 
@@ -172,7 +192,7 @@ var myApp = angular.module('myApp', []);
     (function() {
         $('#login').click(function() {
             var client_id = '431b90e60b8149be99c537b32ebd269f'; // Your client id
-            var redirect_uri = 'http://students.washington.edu/jnbobo/info343/projectSkeleton//#/home/'; // Your redirect uri
+            var redirect_uri = 'http://343-project.local/favorites.html'; // Your redirect uri
 
             var scope = 'user-follow-modify user-follow-read';
             var url = 'https://accounts.spotify.com/authorize';
