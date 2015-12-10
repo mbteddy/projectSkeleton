@@ -5,8 +5,7 @@
  */
 
 (function() {
-	var documentCookies_ = {
-		"path": "/"};
+	var documentCookies_ = {};
 
 	/**
 	 * Stores a cookie in the document.
@@ -59,13 +58,12 @@
 			cookieString += key + "=" + documentCookies_[key] + ";";
 		}
 		document.cookie = cookieString;
+		console.log(cookieString);
 	}
 
 	function clearCookies() {
 		document.cookie = "";
-		documentCookies_ = {
-			"path": "/"
-		};
+		documentCookies_ = {};
 	}
 
 	// On page ready
