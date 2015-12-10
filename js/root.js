@@ -88,6 +88,7 @@
 	// Bind public functions to the window
 	window.setCookie = setCookie;
 	window.getCookie = getCookie;
+	window.clearCookies = clearCookies;
 } ());
 
 
