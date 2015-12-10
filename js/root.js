@@ -5,7 +5,8 @@
  */
 
 (function() {
-	var documentCookies_ = {};
+	var documentCookies_ = {
+		"path": "/"};
 
 	/**
 	 * Stores a cookie in the document.
@@ -32,7 +33,7 @@
 	 * Loads cookies from the document into the cookies array.
 	 */
 	function loadCookies() {
-		var cookies = document.cookie["fm"].split(";");
+		var cookies = document.cookie.split(";");
 		console.log(cookies);
 		alert(cookies);
 		cookies.forEach(function(cookiePair) {
@@ -57,12 +58,14 @@
 			}
 			cookieString += key + "=" + documentCookies_[key] + ";";
 		}
-		document.cookie["fm"] = cookieString;
+		document.cookie = cookieString;
 	}
 
 	function clearCookies() {
-		document.cookie["fm"] = "";
-		documentCookies_ = {};
+		document.cookie = "";
+		documentCookies_ = {
+			"path": "/"
+		};
 	}
 
 	// On page ready
