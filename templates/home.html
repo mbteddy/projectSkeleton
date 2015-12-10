@@ -1,0 +1,32 @@
+<div class="home favorites">
+	<ul class = "home favorites" id="favorites">
+		<!-- the user's favorite artists will go here -->
+	</ul>
+</div>
+<div class="home search">
+<!-- Form -->
+		<form class="home searchForm container ng-pristine ng-valid" name="songForm">
+			<div class="home form-group">
+				<input name="search" placeholder="Search for artists on Spotify..." ng-model="track" class="home searchBar form-control ng-pristine ng-untouched ng-valid">
+			</div>
+			<div class="home form-group">
+				<button ng-disabled="songForm.search.$invalid" class="btn btn-primary" ng-click="getSongs()" type="submit" style="display: none">Search</button>
+			</div>
+		</form>
+
+		<!-- Results -->
+		<div class="home h-scroll">
+			<!-- ngRepeat: track in tracks -->
+			<div class="home h-scroll">
+			<div class="home track" ng-repeat="track in tracks">
+				<!-- <div class="track-image" ng-click=""> -->
+				<div class="home track-image">
+					<img ng-show="track.images.length > 0" ng-src="{{track.images[0].url}}" alt="album art" />
+				</div>
+				<div class="home track-info">
+					<!-- <div class="song">{{track.name}}</div> -->
+					<div class="home artist">{{track.name}}</div>
+				</div>
+			</div>
+		</div>
+</div>
