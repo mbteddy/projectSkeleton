@@ -57,14 +57,7 @@
 		var resultEl = $('#search-artists-results');
 		resultEl.html("");
 		artists.forEach(function(artist) {
-			var artEl = $(
-					'<li>' +
-					'<a href="/search#' + artist.id + '">' +
-					'<img src="' + artist.images[0].url + '" />' +
-					'<div class="artist">' + artist.name + '</div>'+
-					'</a>' +
-					'</li>'
-			);
+			var artEl = $(getArtistHtml(artist));
 			resultEl.append(artEl);
 		});
 	}
@@ -76,16 +69,18 @@
 	function userAuthorFetchCallback(artists) {
 		var favs = $('#favorites');
 		artists.items.forEach(function(artist) {
-			var artEl = $(
-					'<li>' +
-					'<a href="/search#' + artist.id + '">' +
-					'<img src="' + artist.images[0].url + '" />' +
-					'<div class="artist">' + artist.name + '</div>'+
-					'</a>' +
-					'</li>'
-			);
+			var artEl = $(getArtistHtml(artist));
 			favs.append(artEl);
 		});
+	}
+
+	function getArtistHtml(artist) {
+		return '<li>' +
+				'<a href="/search#' + artist.name + '">' +
+				'<img src="' + artist.images[0].url + '" />' +
+				'<div class="artist">' + artist.name + '</div>'+
+				'</a>' +
+				'</li>';
 	}
 
 	// On page ready

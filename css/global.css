@@ -18,7 +18,8 @@ html, body {
   display: inline-block; }
 
 .artist-list {
-  list-style: none; }
+  list-style: none;
+  padding: 0; }
   .artist-list a, .artist-list a:link, .artist-list a:visited {
     text-decoration: none; }
   .artist-list a:hover .artist, .artist-list a:active .artist {
@@ -56,5 +57,8 @@ html, body {
   font-size: 28px; }
 .login .hint {
   color: #999; }
+
+#search-map {
+  height: 100vh; }
 
 /*# sourceMappingURL=global.css.map */
