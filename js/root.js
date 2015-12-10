@@ -38,7 +38,7 @@
 			if (kv.length == 2) {
 				documentCookies_[kv[0]] = kv[1];
 			}
-		})
+		});
 	}
 
 	/**

@@ -3,6 +3,7 @@
 
 	// Is the user logged in?
 	if (!accessToken) {
+		alert("no access token");
 		clearCookies();
 		window.location = "/login";
 		return;
