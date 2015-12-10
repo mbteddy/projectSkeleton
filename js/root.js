@@ -14,7 +14,7 @@
 	 * @param {?string} value
 	 */
 	function setCookie(key, value) {
-		documentCookies_[key] = value + ";";
+		documentCookies_[key] = value;
 		storeCookies();
 	}
 
@@ -55,7 +55,7 @@
 			if (documentCookies_[key] == null) {
 				continue;
 			}
-			cookieString += key + "=" + documentCookies_[key];
+			cookieString += key + "=" + documentCookies_[key] + ";";
 		}
 		document.cookie = cookieString;
 	}
